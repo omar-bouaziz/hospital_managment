@@ -17,6 +17,7 @@
         name="Appointement"
         parent="menu_hospital_root"
         sequence="0"/>
+
     <menuitem id="menu_configuration"
         name="configuration"
         parent="menu_hospital_root"

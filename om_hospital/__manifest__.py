@@ -11,6 +11,7 @@
     'depends': ['mail','product'],
     'data': [
         'security/ir.model.access.csv',
+        'views/odoo_playground.xml',
         # 'data/patient.tag.csv',
         'data/sequence_data.xml',
         'views/Patient_view.xml',
@@ -19,6 +20,7 @@
         'views/Female_Patient_View.xml',
         'views/Appointement_Patient_view.xml',
         'views/patient_tag_view.xml'
+
 
 
 
