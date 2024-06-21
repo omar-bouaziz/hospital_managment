@@ -10,5 +10,9 @@ class PatientTag(models.Model):
     active=fields.Boolean(string="Active", default=True)
     color=fields.Integer(string="Color")
 
+    _sql_constraints = [
+        ('unique_name', 'unique(name)', 'Name must be unique')
+    ]
+
 
 
