@@ -12,6 +12,8 @@ class CancelAppointementWizard(models.TransientModel):
     def default_get(self, fields):
         res=super(CancelAppointementWizard,self).default_get(fields)
         res['date_cancel']=datetime.date.today()
+        if self.env.context.get('active_id'):
+            res['appointement_id'] = self.env.context.get('active_id')
         return res
 
     appointement_id=fields.Many2one('hospital.appointement', string='Appointement')

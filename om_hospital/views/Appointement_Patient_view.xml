@@ -50,7 +50,8 @@
                             invisible="state != 'draft'"/>
                     <button name="action_done" string="Done" type="object" invisible="state != 'in_consultation'"
                             class="oe_highlight" data-hotkey="v"/>
-                    <button name="action_cancel" string="Cancel" type="object"
+                    <button name="%(om_hospital.action_cancel_appointement)d" string="Cancel" type="action"
+                            context="{'default_reason':'test'}"
                             invisible="state not in ['draft', 'in_consultation']" data-hotkey="z"/>
                     <button name="action_draft" string="Reset To Draft" type="object" invisible="state != 'cancel'"
                             data-hotkey="r"/>
