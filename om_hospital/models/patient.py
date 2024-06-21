@@ -20,6 +20,9 @@ class HospitalPatient(models.Model):
     tag_ids=fields.Many2many('patient.tag',string="Tags")
     appointement_count=fields.Integer(string="Appointement Count", compute="_compute_appointement_count",store=True)
     appointement_ids= fields.One2many("hospital.appointement",'patient_id',string="Appointement")
+    parent=fields.Char(string="Parent")
+    marital_status=fields.Selection([('married','Married'),('single','Single')],string="Marital Status",tracking=True)
+    partner_name=fields.Char(string="Partner Name")
     @api.depends('appointement_ids')
     def _compute_appointement_count(self):
         for rec in self :
