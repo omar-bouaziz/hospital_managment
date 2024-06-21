@@ -7,7 +7,7 @@
             <form>
                 <group>
                       <group>
-                            <field name="appointement_id"/>
+                            <field name="appointement_id" invisible="context.get('hide_appointement')"/>
                             <field name="reason"/>
                       </group>
                     <group>
