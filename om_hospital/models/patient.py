@@ -18,9 +18,12 @@ class HospitalPatient(models.Model):
     appointement_id=fields.Many2one("hospital.appointement",string="Appointement")
     image=fields.Image(string="Image")
     tag_ids=fields.Many2many('patient.tag',string="Tags")
-
-
-
+    appointement_count=fields.Integer(string="Appointement Count", compute="_compute_appointement_count",store=True)
+    appointement_ids= fields.One2many("hospital.appointement",'patient_id',string="Appointement")
+    @api.depends('appointement_ids')
+    def _compute_appointement_count(self):
+        for rec in self :
+            rec.appointement_count=self.env['hospital.appointement'].search_count([('patient_id','=',rec.id)])
 
     @api.constrains('date_of_birth')
     def _check_date_of_birth(self):

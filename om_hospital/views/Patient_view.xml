@@ -24,6 +24,7 @@
                             <field name="date_of_birth"/>
                             <field name="age"/>
                             <field name="appointement_id"/>
+                            <field name="appointement_count"/>
                         </group>
                         <group>
                             <field name="ref"/>
