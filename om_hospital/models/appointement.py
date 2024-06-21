@@ -1,7 +1,7 @@
 from typing import Dict, List
 
 from odoo import api, fields, models
-
+from odoo.exceptions import ValidationError
 
 class HospitalAppointement(models.Model):
     _name = "hospital.appointement"
@@ -34,6 +34,11 @@ class HospitalAppointement(models.Model):
     @api.onchange('patient_id')
     def onchange_patient_id(self):
         self.ref=self.patient_id.ref
+
+    def unlink(self):
+        if self.state != 'draft':
+            raise ValidationError(("you can delete appointement only in draft status!"))
+        return super(HospitalAppointement,self).unlink()
 
 
     def action_test(self):
