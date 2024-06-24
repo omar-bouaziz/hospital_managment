@@ -23,6 +23,10 @@
             <tree decoration-success="state == 'done'" decoration-danger="state=='cancel'"
                   decoration-info="state =='draft'"
                   decoration-muted="state =='in_consultation'" sample="1" multi_edit="1">
+                <header>
+                    <button name="action_in_consultation" string="In consultation" type="object"
+                           />
+                </header>
                 <field name="patient_id"/>
                 <field name="ref" optional="show"/>
                 <field name="gender" optional="hide"/>
@@ -45,7 +49,6 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-
                     <button name="action_in_consultation" string="In consultation" type="object"
                             invisible="state != 'draft'"/>
                     <button name="action_done" string="Done" type="object" invisible="state != 'in_consultation'"

@@ -52,7 +52,10 @@ class HospitalAppointement(models.Model):
         }
     def action_in_consultation(self):
         for rec in self:
-            rec.state="in_consultation"
+            if rec.stats=='draft':
+                rec.state = "in_consultation"
+
+
 
     def action_done(self):
         for rec in self:
