@@ -35,6 +35,14 @@ class HospitalPatient(models.Model):
             if rec.date_of_birth and rec.date_of_birth > fields.Date.today():
                 raise ValidationError(("the entered date of birth is not acceptable ! "))
 
+
+    @api.ondelete(at_uninstall=False)
+    def _check_appointements(self):
+        for rec in self:
+            if rec.appointement_ids:
+                raise ValidationError(("you cannot delete a patient with appointement !"))
+
+
     @api.model
     def create(self, vals):
         print("odoo mates", vals)
@@ -56,6 +64,10 @@ class HospitalPatient(models.Model):
                 rec.age = (today.year - rec.date_of_birth.year)
             else:
                 rec.age = 0
+
+    def action_test(self):
+        print("Clicked")
+
 
     def name_get(self):
         # return [(record.id, "[%s] %s" % (record.ref,record.name))for record in self]
