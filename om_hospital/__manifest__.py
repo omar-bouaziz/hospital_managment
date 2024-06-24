@@ -19,8 +19,8 @@
         'wizard/Cancel_appointement_view.xml',
         'views/Female_Patient_View.xml',
         'views/Appointement_Patient_view.xml',
-        'views/patient_tag_view.xml'
-
+        'views/patient_tag_view.xml',
+        'views/res_config_settings_views.xml'
 
 
 
