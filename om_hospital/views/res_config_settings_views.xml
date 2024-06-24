@@ -4,18 +4,18 @@
         <record id="res_config_settings_view_form" model="ir.ui.view">
             <field name="name">res.config.settings.view.hospital</field>
             <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="inside">
 
-                    <app data-string="Hospital" id="hospital" string="Hospital" name="fleet" groups="fleet.fleet_group_manager">
-                        <h2>Hospital Management</h2>
-                        <block title="Fleet Management" id="end_contract_setting">
-                            <setting string="End Date Contract Alert">
-                                <div class="text-muted content-group mt16">
-                                    <span>Send an alert </span>
+                    <app data-string="Hospital" id="hospital" string="Hospital" name="hospital" >
+                        <block title="Hospital  Setting"  name="setting_hospital" >
+                            <setting id="hospital_control_setting" string="Hospital">
+                                <div class="app_settings_block">
+                                    <span> cancellation before </span>
                                     <field name="cancel_days" class="text-center" style="width: 10%; min-width: 4rem;" />
-                                    <span> days before the end date</span>
+                                    <span> days </span>
                                 </div>
                             </setting>
                         </block>
