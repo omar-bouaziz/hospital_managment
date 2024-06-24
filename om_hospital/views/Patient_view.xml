@@ -18,9 +18,17 @@
             <form>
                 <sheet>
                     <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h4>
+                            <field name="ref" readonly="1"/>
+                        </h4>
+                        <h2>
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name" />
+                        </h2>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
                             <field name="date_of_birth"/>
                             <field name="age"/>
                             <field name="appointement_id"/>
@@ -38,7 +46,7 @@
                         <group string="Other Information " name="Other_info">
                             <field name="parent"  invisible="age > 18"/>
                             <field name="marital_status" />
-                            <field name="partner_name" readonly="marital_status != 'married' "/>
+                            <field name="partner_name" required="marital_status == 'married'"  readonly="marital_status != 'married'"/>
                         </group>
                     </group>
                 </sheet>
