@@ -37,8 +37,8 @@
                     <group>
                         <group string="Other Information " name="Other_info">
                             <field name="parent"  invisible="age > 18"/>
-                            <field name="marital_status"/>
-                            <field name="partner_name"/>
+                            <field name="marital_status" />
+                            <field name="partner_name" readonly="marital_status != 'married' "/>
                         </group>
                     </group>
                 </sheet>
