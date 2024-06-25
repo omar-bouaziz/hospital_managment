@@ -12,8 +12,8 @@ class HospitalPatient(models.Model):
     name = fields.Char(string="Name", tracking=True)
     date_of_birth = fields.Date(string="date of birth")
     ref = fields.Char(string="Reference", help="Reference from patient record")
-    age = fields.Integer(string="Age", compute="_compute_age", readonly=True)
-    #inverse='_inverse_compute_age',
+    age = fields.Integer(string="Age", compute="_compute_age",inverse='_inverse_compute_age', readonly=False)
+
     gender = fields.Selection([("male", "Male"), ("female", "Female")], string="Gender")
     active = fields.Boolean(string="Active", default=True)
     appointement_id = fields.Many2one("hospital.appointement", string="Appointement")
@@ -72,11 +72,11 @@ class HospitalPatient(models.Model):
     def action_test(self):
         print("Clicked")
 
-    #@api.depends('age')
-    #def _inverse_compute_age(self):
-    #    today=date.today()
-    #    for rec in self:
-    #        rec.date_of_birth=today - relativedelta.relativedelta(years=rec.age)
+    @api.depends('age')
+    def _inverse_compute_age(self):
+        today = date.today()
+        for rec in self:
+            rec.date_of_birth = today - relativedelta.relativedelta(years=rec.age)
 
 
     def name_get(self):

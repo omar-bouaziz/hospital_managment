@@ -8,9 +8,8 @@
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="inside">
-
-                    <app data-string="Hospital" id="hospital" string="Hospital" name="hospital" >
-                        <block title="Hospital  Setting"  name="setting_hospital" >
+                    <app data-string="Hospital" id="hospital" string="Hospital" name="om_hospital">
+                        <block title="Hospital Setting" name="setting_hospital" >
                             <setting id="hospital_control_setting" string="Hospital">
                                 <div class="app_settings_block">
                                     <span> cancellation before </span>
