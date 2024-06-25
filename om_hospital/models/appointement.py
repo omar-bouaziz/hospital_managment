@@ -11,6 +11,7 @@ class HospitalAppointement(models.Model):
 
 
     patient_id=fields.Many2one("hospital.patient",string="Patient")
+    operation_id=fields.Many2one("hospital.operation",string="Operation")
     gender = fields.Selection([("male", "Male"), ("female", "Female")], string="Gender", related="patient_id.gender")
     appointement_time=fields.Datetime(string="appointement_time",default=fields.Datetime.now)
     Booking_date=fields.Date(string="booking date",default=fields.Date.context_today)
