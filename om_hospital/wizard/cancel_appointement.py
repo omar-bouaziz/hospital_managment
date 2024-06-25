@@ -25,11 +25,14 @@ class CancelAppointementWizard(models.TransientModel):
     reason=fields.Text(string="Reason")
     date_cancel=fields.Date(string="Cancellation Date")
 
+
     def action_cancel(self):
+
         cancel_day = self.env['ir.config_parameter'].get_param('om_hospital.cancel_day')
-        allowed_date = self.appointement_id.booking_date - relativedelta.relativedelta(days=int(cancel_day))
+        allowed_date = self.appointement_id.Booking_date - relativedelta.relativedelta(days=int(cancel_day))
         if allowed_date < date.today():
             raise ValidationError(("sorry, cancellation is not allowed for this booking"))
         self.appointement_id.state = 'cancel'
+
 
 
