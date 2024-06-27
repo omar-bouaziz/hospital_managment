@@ -58,6 +58,10 @@
                             <field name="marital_status" />
                             <field name="partner_name" required="marital_status == 'married'"  readonly="marital_status != 'married'"/>
                         </group>
+                         <group name="Other_info" >
+                            <field name="Phone" widget="phone" />
+                            <field name="Email" widget="email" />
+                        </group>
                     </group>
                 </sheet>
                  <div class="oe_chatter">
